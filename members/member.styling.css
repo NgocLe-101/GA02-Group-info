@@ -11,62 +11,219 @@
 
 html,
 body {
-  overflow: hidden;
+  font-family: "Source Code Pro", monospace;
 }
 
 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.container {
-  font-family: "Source Code Pro", monospace;
-  font-size: 2rem;
-  min-height: 100svh;
-  display: grid;
-  grid-template-columns: 6fr 4fr;
-}
-
-.content {
-  z-index: 100;
-  padding: 2em;
-  padding-left: 4em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 1.5em;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-}
-
-.content h1 {
-  font-weight: 500;
-  font-size: 1.125em;
-}
-
-.content p {
-  font-weight: 300;
-  font-size: 0.875em;
-}
-
-button {
-  cursor: pointer;
-  font: inherit;
-  padding: 1em 2em;
-  border: none;
-  border-radius: 3em;
-  background-color: #3c3c43;
-  color: #ffffff;
-  font-size: 0.75em;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
-}
-
-button:hover {
-  background-color: #4f4f57;
+  transition: all 0.3s;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+}
+
+h1 {
+  font-size: 1.75em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.container {
+  width: 75vw;
+  height: 80vh;
+  font-size: 2rem;
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  row-gap: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.container > .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+  padding: 1em;
+  background-color: #1f8c9e;
+}
+
+.left > * {
+  margin-bottom: 0.5em;
+}
+
+.left > .image-wrapper {
+  overflow: hidden;
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #e4eff1;
+  padding: 0.4em;
+}
+
+.left > .title {
+  text-align: center;
+  margin: 0 1em;
+}
+
+.left > .subtitle {
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.links-wrapper img {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+}
+
+.links-wrapper img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.container > .right {
+  padding: 1.5em 1em;
+  z-index: 0;
+}
+
+.right > * {
+  margin-bottom: 1em;
+}
+
+.section .section-title {
+  color: #1f8c9e;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.1em;
+}
+
+.section .section-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background-color: #e4eff1;
+  z-index: -1;
+}
+
+.banner-container {
+  padding: 0.5em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.5em, 1fr));
+  gap: 0.5em;
+}
+
+.banner {
+  height: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.banner .namespace {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100%;
+  z-index: -1;
+  z-index: 100;
+  font-size: 1.25em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 10px;
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.namespace > p {
+  font-weight: 900;
+  hyphens: auto;
+  min-width: 5ch;
+  text-align: right;
+  padding-right: 0.5em;
+}
+
+.banner img {
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.banner.html .namespace {
+  background: linear-gradient(to left, rgba(238, 97, 28, 1), transparent);
+}
+
+.banner.js .namespace,
+.banner.python .namespace {
+  background: linear-gradient(to left, rgba(241, 224, 90, 1), transparent);
+}
+
+.banner.css .namespace {
+  background: linear-gradient(to left, rgba(51, 153, 255, 1), transparent);
+}
+
+.banner.cpp .namespace {
+  background: linear-gradient(to left, rgba(0, 72, 128, 1), transparent);
+}
+
+.banner.react .namespace {
+  background: linear-gradient(to left, rgba(101, 220, 252, 1), transparent);
+}
+
+.main-page-btn {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s;
+}
+
+.main-page-btn img {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0.5em;
+}
+
+.main-page-btn button {
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+  padding: 0.5em 1em;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.main-page-btn:hover {
+  transform: translateX(1em);
 }
