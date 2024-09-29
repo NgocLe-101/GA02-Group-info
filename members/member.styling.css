@@ -42,7 +42,7 @@ h1 {
 
 .container {
   width: 75vw;
-  height: 80vh;
+  min-height: 80vh;
   font-size: 2rem;
   display: grid;
   grid-template-columns: 4fr 6fr;
@@ -135,7 +135,7 @@ h1 {
 .banner-container {
   padding: 0.5em 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(7.5em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
   gap: 0.5em;
 }
 
@@ -145,6 +145,11 @@ h1 {
   align-items: center;
   justify-content: center;
   position: relative;
+  transition: transform 0.3s;
+}
+
+.banner:hover {
+  transform: scale(1.05);
 }
 
 .banner .namespace {
@@ -225,5 +230,14 @@ h1 {
 }
 
 .main-page-btn:hover {
-  transform: translateX(1em);
+  animation: pullin 0.3s ease-out forwards;
+}
+
+@keyframes pullin {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(1em);
+  }
 }
